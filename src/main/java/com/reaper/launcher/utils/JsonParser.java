@@ -48,7 +48,5 @@ public class JsonParser {
         List<String> names = (List<String>) obj.get("endpointNames");
 
         return seed_hosts != null && names != null && names.equals(seed_hosts);
-
-
     }
 }

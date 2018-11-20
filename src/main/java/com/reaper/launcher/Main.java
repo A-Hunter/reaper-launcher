@@ -1,5 +1,11 @@
 package com.reaper.launcher;
 
+import com.reaper.launcher.utils.ClusterHealthChecker;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Ghazi Naceur on 19/11/2018.
  */
@@ -14,5 +20,9 @@ public class Main {
         }
 
         GetRequest.isAllNodesUP();
+
+        while (ClusterHealthChecker.isAllNodesAreUP(GetRequest.ping())){
+
+        }
     }
 }
