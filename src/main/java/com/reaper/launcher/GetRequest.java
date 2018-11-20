@@ -38,10 +38,6 @@ public class GetRequest {
 
             boolean allNodesAreUP = true;
 
-            if (result == null){
-                System.out.println("result : "+result);
-            }
-
             JSONObject object = new JSONObject(result.toString());
             System.out.println(object);
 

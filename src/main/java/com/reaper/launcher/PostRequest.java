@@ -11,6 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 public class PostRequest {
 
     public static boolean isConnectToCluster() {
+
         String url = "http://127.0.0.1:8080/cluster?seedHost=localhost";
 
         //TODO   if url returns 201 or 204 => OK continue
@@ -24,20 +25,7 @@ public class PostRequest {
             System.out.println("\nSending 'POST' request to URL : " + url);
             System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
 
-            if (response.getStatusLine().getStatusCode() == 400) {
-                return false;
-            } else {
-                return true;
-            }
-//            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-
-//            StringBuilder result = new StringBuilder();
-//            String line;
-//            while ((line = rd.readLine()) != null) {
-//                result.append(line);
-//            }
-
-//            result.toString()
+            return response.getStatusLine().getStatusCode() != 400;
 
         } catch (Exception e) {
             e.printStackTrace();
