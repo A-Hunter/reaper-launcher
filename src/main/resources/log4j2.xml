@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="  [%t] %m%n   "/>
+        </Console>
+
+        <Console name="ReaperLauncherConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} |  %-5p | [%t]|  %1X{REQ_ID} | %1X{USER_ID} | %-30c{1}:%-5L | %m%n"/>
+            <Filters>
+                <ThresholdFilter level="OFF"/>
+            </Filters>
+        </Console>
+
+        <RollingRandomAccessFile name="ReaperLauncherFileAppender"
+                                 bufferSize="8192"
+                                 immediateFlush="true"
+                                 append="true"
+                                 fileName="/logs/reaper_launcher/reaper_launcher.log"
+                                 filePattern="/logs/reaper_launcher/reaper_launcher-%i.log">
+            <DefaultRolloverStrategy max="7"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | %-5p | [%t]| %1X{REQ_ID} | %1X{USER_ID} |%-30c{1}:%-5L | %m%n
+                </Pattern>
+            </PatternLayout>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+
+        <logger name="com.reaper.launcher" additivity="true"
+                includeLocation="false" level="INFO">
+            <appenderRef ref="ReaperLauncherFileAppender" level="INFO"/>
+        </logger>
+
+    </Loggers>
+
+</Configuration>

@@ -1,0 +1,11 @@
+-connect 10.40.253.60 10.68.253.58
+-list 10.40.253.60
+-create-repair 10.40.253.60 LnsAdminCluster lns_admin_db 1
+-start-repair 10.40.253.60 db03b1d0-f898-11e8-adeb-cb1b41c6ffc1
+-create-and-start 10.40.253.60 LnsAdminCluster lns_admin_db 1
+-monitor 10.40.253.60
+-run-and-monitor 10.40.253.60 LnsAdminCluster lns_admin_db 1
+-run-monitor-and-delete 10.40.253.60 LnsAdminCluster lns_admin_db 1
+-stop-repair 10.40.253.60 c305b5e0-f89f-11e8-adeb-cb1b41c6ffc1
+-delete-repair 10.40.253.60 c305b5e0-f89f-11e8-adeb-cb1b41c6ffc1
+-help
